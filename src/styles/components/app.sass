@@ -1,22 +1,105 @@
+@use '../variables'
+
 .container
     display: flex
-    justify-content: center
-    align-items: center
+    width: 45.5rem
+    height: 17.5rem
+    background: #ffffff
+    border-radius: .5rem
+
     .image
+        width: 17.7rem
+        height: 17.55rem
+        overflow: hidden
+        border-radius: .5rem 0 0 .5rem
+        img
+            height: 17.55rem
 
     .text
+        width: calc( 45.5rem - 17.7rem )
+        padding: 2.1rem 2.5rem 2.1rem 2.5rem
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+        position: relative
         h1
-        
+            font-size: 1.29rem
         p
+            font-size: .85rem
 
         .footer
+            display: flex
+            justify-content: space-between
+            align-items: center
 
             .author
+                display: flex
                 img
+                    border-radius: 50%
+                    width: 2.5rem
+                    height: 2.5rem
                 .author-data
                     h2
+                        font-size: .9rem
                     p
-                .share
-                    div
-                        h3
-                        img
+            .share
+                border: 0px
+                border-radius: 50%
+                width: 2.1rem
+                height: 2.1rem
+                background: variables.$container-bg-color
+                display: flex
+                justify-content: center
+                align-items: center
+                img
+                    width: auto
+                    height: .8rem
+                    border-radius: 0
+
+                &:hover
+                    cursor: pointer
+                    background: variables.$text-color
+                    img
+                        filter: invert(100%) brightness(10000%) saturate(0%) hue-rotate(0deg)
+            .share-clicked
+                cursor: pointer
+                background: variables.$text-color
+                img
+                    filter: invert(100%) brightness(10000%) saturate(0%) hue-rotate(0deg)
+
+        .pop-up
+            display: none
+
+        .pop-up-show
+            display: flex
+            position: absolute
+            justify-content: space-between
+            align-items: center
+            padding: 0 2.2rem
+            background-color: variables.$title-color
+            width: 15.4rem
+            height: 3.5rem
+            border-radius: 10px
+            right: -4.1rem
+            bottom: 6rem
+            h3
+                color: variables.$text-color
+                text-transform: uppercase
+                font-size: .85rem
+                font-weight: 300
+                letter-spacing: .27rem
+
+            img
+                height: 1.2rem
+                &:hover
+                    cursor: pointer
+                    scale: 1.1
+
+            &::before
+                content: ''
+                position: absolute
+                bottom: -27px
+                left: 50%
+                transform: translateX(-50%)
+                border: 15px solid transparent
+                border-top-color: variables.$title-color

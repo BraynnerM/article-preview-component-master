@@ -1,6 +1,19 @@
-import './styles/components/app.sass'
-function App() {
+import { useState } from 'react'
 
+import './styles/components/app.sass'
+
+function App() {
+  const [popUpClass, setPopUpClass] = useState('pop-up')
+  const [shareClickedClass, setShareClickedClass] = useState('')
+  const handlePopUp = () => {
+    if (popUpClass === 'pop-up' && shareClickedClass === '') {
+      setPopUpClass('pop-up-show')
+      setShareClickedClass('share-clicked')
+    } else {
+      setPopUpClass('pop-up')
+      setShareClickedClass('')
+    }
+  }
 
   return (
     <div className="container">
@@ -16,20 +29,21 @@ function App() {
           to help you make any room feel complete.</p>
         <div className="footer">
           <div className="author">
-            <img src="" alt="" />
+            <img src="./src/assets/avatar-michelle.jpg" alt="michelle" />
             <div className="author-data">
               <h2>Michelle Appleton</h2>
               <p>28 Jun 2020</p>
             </div>
-            <button className="share">
-              <div>
-                <h3>Share</h3>
-                <img src="" alt="" />
-                <img src="" alt="" />
-                <img src="" alt="" />
-              </div>
-            </button>
           </div>
+          <button className={`share  ${shareClickedClass}`} onClick={handlePopUp}>
+            <img src="./src/assets/icon-share.svg" alt="share-icon" />
+          </button>
+        </div>
+        <div className={`${popUpClass}`}>
+          <h3>Share</h3>
+          <img src="./src/assets/icon-facebook.svg" alt="facebook-icon" />
+          <img src="./src/assets/icon-twitter.svg" alt="twitter-icon" />
+          <img src="./src/assets/icon-pinterest.svg" alt="pinterest-icon" />
         </div>
       </div>
     </div>
