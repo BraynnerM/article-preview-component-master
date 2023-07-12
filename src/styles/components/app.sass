@@ -6,6 +6,10 @@
     height: 17.5rem
     background: #ffffff
     border-radius: .5rem
+    @media (max-width: 750px)
+        flex-direction: column
+        width: 20.5rem
+        height: 31.5rem
 
     .image
         width: 17.7rem
@@ -14,18 +18,32 @@
         border-radius: .5rem 0 0 .5rem
         img
             height: 17.55rem
+    @media (max-width: 750px)
+        .image
+            width: 20.5rem
+            height: 12.5rem
+            position: relative
+            border-radius: .5rem .5rem 0 0 
+            
+            img
+                width: 20.5rem 
+                position: absolute
+                top: -1.7rem             
+                
+                
 
     .text
         width: calc( 45.5rem - 17.7rem )
-        padding: 2.1rem 2.5rem 2.1rem 2.5rem
+        padding: 1.9rem 2.5rem 2rem 2.5rem
         display: flex
         flex-direction: column
-        justify-content: space-around
+        justify-content: space-between
         position: relative
         h1
             font-size: 1.29rem
         p
             font-size: .85rem
+            line-height: 1.2rem
 
         .footer
             display: flex
@@ -39,9 +57,13 @@
                     width: 2.5rem
                     height: 2.5rem
                 .author-data
+                    padding-left: 1.05rem
                     h2
-                        font-size: .9rem
+                        font-size: .83rem
+                        font-weight: 700
+
                     p
+                        font-size: .83rem
             .share
                 border: 0px
                 border-radius: 50%
@@ -103,3 +125,33 @@
                 transform: translateX(-50%)
                 border: 15px solid transparent
                 border-top-color: variables.$title-color
+    @media (max-width: 750px)
+        .text
+            width: 20.5rem
+            height: 18.1rem
+            margin: 1.25rem 0 0 0
+            padding: 0rem 2rem 0rem 2.1rem
+            justify-content: space-around
+            
+            h1
+                font-size: 1.03rem
+            p
+                font-size: .83rem
+                
+            .footer
+                .share                    
+                    z-index: 1
+                    
+                    
+
+            .pop-up-show
+                width: 20.5rem
+                height: 4rem                
+                right: 0
+                bottom: 0
+                padding: 0 7.5rem 0 2.1rem
+                border-radius: 0 0 10px 10px
+                &::before
+                    display: none
+                
+                
